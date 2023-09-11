@@ -4,6 +4,7 @@ using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace mietlabs
 {
@@ -69,12 +70,42 @@ namespace mietlabs
         private System.DateTime dt;
 
     }
-    internal class Program
+
+    class Exam
+    {
+        public Exam(string name_sub, int mark, System.DateTime date)
+        {
+            this.name_sub = name_sub;
+            this.mark = mark;
+            this.date = date;
+        }
+
+        public Exam()
+        {
+            name_sub = "";
+            mark = -1;
+            date = new DateTime(1978, 1, 1);
+        }
+        public string name_sub;
+        public int mark;
+        public System.DateTime date;
+
+        public override string ToString()
+        {
+            return Convert.ToString(name_sub) + " " + Convert.ToString(mark) + " " + Convert.ToString(date);
+        }
+        
+    }
+
+
+    internal class laba
     {
         static void Main(string[] args)
         {
             Person pers = new Person("Мама", "мия", DateTime.Now);
             Console.WriteLine(pers.ToShortString());
+
+            
         }
     }
 }
