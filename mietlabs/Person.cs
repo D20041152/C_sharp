@@ -8,18 +8,18 @@ namespace mietlabs
 {
     internal class Person
     {
-        public Person(string name, string surname, DateTime dt)
+        public Person(string name, string surname, DateTime birthday)
         {
             this.name = name;
             this.surname = surname;
-            this.dt = dt;
+            this.birthday = birthday;
         }
 
         public Person()
         {
-            this.name = "";
-            this.surname = "";
-            this.dt = new DateTime(1978, 1, 1);
+            this.name = "None";
+            this.surname = "None";
+            this.birthday = new DateTime(1978, 1, 1);
         }
 
         public string getName()
@@ -34,7 +34,7 @@ namespace mietlabs
 
         public System.DateTime getDate()
         {
-            return dt;
+            return birthday;
         }
 
         public void setName(string name)
@@ -47,14 +47,14 @@ namespace mietlabs
             this.surname = surname;
         }
 
-        public void setDate(System.DateTime dt)
+        public void setDate(System.DateTime birthday)
         {
-            this.dt = dt;
+            this.birthday = birthday;
         }
 
         public override string ToString()
         {
-            return Convert.ToString(name) + " " + Convert.ToString(surname) + " " + Convert.ToString(dt);
+            return Convert.ToString(name) + " " + Convert.ToString(surname) + " " + Convert.ToString(birthday);
         }
 
         public virtual string ToShortString()
@@ -65,7 +65,7 @@ namespace mietlabs
 
         private string name;
         private string surname;
-        private System.DateTime dt;
+        private System.DateTime birthday;
 
     }
 }
