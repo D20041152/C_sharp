@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace mietlabs
 {
@@ -17,13 +14,13 @@ namespace mietlabs
 
         public Exam()
         {
-            name_sub = "";
+            name_sub = "None";
             mark = 0;
             date_exam = new DateTime(1978, 1, 1);
         }
         public override string ToString()
         {
-            return Convert.ToString(name_sub) + " " + Convert.ToString(mark) + " " + Convert.ToString(date_exam);
+            return $"{Convert.ToString(name_sub),-15}\t{Convert.ToString(mark)}\t{Convert.ToString(date_exam)} ";
         }
 
         public string name_sub;

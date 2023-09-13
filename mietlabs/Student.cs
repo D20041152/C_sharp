@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mietlabs
 {
     internal class Student
     {
+
         public Student(Person pers, Education education, int number_group)
         {
             this.pers = pers;
             this.education = education;
             this.number_group = number_group;
-            exams = new Exam[] { new Exam() };
+            exams = new Exam[0];
+            exams_3 = new Exam[0][];
         }
 
         public Student()
@@ -21,7 +19,8 @@ namespace mietlabs
             pers = new Person();
             education = new Education();
             number_group = 0;
-            exams = new Exam[] { new Exam() };
+            exams = new Exam[0];
+            exams_3 = new Exam[0][];
         }
 
         public Person get_person()
@@ -42,12 +41,29 @@ namespace mietlabs
         public string get_exam()
         {
             string res = "";
-            foreach (var exam in exams)
+            if (exams.Length > 0)
             {
-                res += Convert.ToString(exam) + "\n";
-            };
+                
+                foreach (var exam in exams)
+                {
+                    res += Convert.ToString(exam) + "\n";
+                };
+
+       
+            }
+
+            else if(exams_3.Length > 0)
+            {
+                for (int i = 0; i < exams_3.Length; i++)
+                {
+                    for (int j = 0; j < exams_3[i].Length; j++)
+                    {
+                        res += Convert.ToString(exams_3[i][j]) + "\n";
+                    }
+                }
+            }
             return res;
-        }
+        } 
 
         public void set_person(Person pers)
         {
@@ -88,15 +104,42 @@ namespace mietlabs
         {
             int size_exams = exams.Length;
             Array.Resize(ref exams, other_exams.Length);
-            for (int i = size_exams - 1; i < other_exams.Length; i++)
+            for (int i = size_exams; i < other_exams.Length; i++)
             {
-                exams[i] = other_exams[i - size_exams + 1];
+                exams[i] = other_exams[i - size_exams];
             }
         }
 
+        public void AddExams(Exam[,] other_exams)
+        {
+            int n = 0;
+            int size_exams = exams.Length;
+            Array.Resize(ref exams, other_exams.Length);
+            for (int i = size_exams; i < other_exams.GetLength(0); i++)
+            {
+                for (int j = size_exams; j < other_exams.GetLength(1); j++)
+                {
+                    exams[n + j] = other_exams[i - size_exams, j - size_exams];
+                }
+                n = n + other_exams.GetLength(1);
+            }
+        }
+
+        public void AddExams(Exam[][] other_exams)
+        {
+            int size_exams = exams_3.Length;
+            Array.Resize(ref exams_3, other_exams.Length);
+            for (int i = size_exams; i < exams_3.Length; i++)
+            {
+                exams_3[i] = other_exams[i - size_exams];
+            }
+
+        }
+
+
         public override string ToString()
         {
-            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + " " + Convert.ToString(get_exam());
+            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + "\nЭкзамены:\n" + Convert.ToString(get_exam());
         }
 
         public virtual string ToShortString()
@@ -110,5 +153,6 @@ namespace mietlabs
         private Education education;
         private int number_group;
         private Exam[] exams;
-}
+        private Exam[][] exams_3;
+    }
 }

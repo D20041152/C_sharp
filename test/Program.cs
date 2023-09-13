@@ -11,7 +11,8 @@ namespace test
         static void Main(string[] args)
         {
             int[,] ints = new int[3, 4];
-            Console.WriteLine(ints);
+            Console.WriteLine(String.Format("{0,-10} | {1,5}", "Bill", 51));
+
         }
     }
 }
