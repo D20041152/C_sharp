@@ -13,17 +13,18 @@ namespace mietlabs
     internal class laba
     {
 
-        static void timer(ref Student st)
+        static double timer(in Student st)
         {
             Stopwatch stopWatch_1 = new Stopwatch();
             stopWatch_1.Start();
             Console.WriteLine(st.ToString());
             stopWatch_1.Stop();
-            Console.WriteLine(stopWatch_1.Elapsed.TotalSeconds);
+            return stopWatch_1.Elapsed.TotalSeconds;
         }
 
         static void Main(string[] args)
          {
+            Console.WriteLine("nrow ncols");
             int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
             int nrow = input[0];
             int ncol = input[1];
@@ -40,7 +41,9 @@ namespace mietlabs
                 ex[i] = new Exam();
             }
             student.AddExams(ex);
-            timer(ref student);
+
+            double t_1 = timer(student);
+
             Exam[,] ex_2 = new Exam[nrow, ncol];
 
             for (int i = 0; i < nrow; i++)
@@ -53,7 +56,7 @@ namespace mietlabs
             Student student_2 = new Student(pers, Education.Bachelor, 2);
 
             student_2.AddExams(ex_2);
-            timer(ref student_2);
+            double t_2 = timer(student_2);
 
 
             Exam[][] ex_3 = new Exam[nrow][];
@@ -71,8 +74,11 @@ namespace mietlabs
 
             Student student_3 = new Student(pers, Education.Bachelor, 2);
             student_3.AddExams(ex_3);
-            timer(ref student_3);
+            double t_3 = timer(student_3);
 
+            Console.WriteLine($"Одномерный массив - {t_1}");
+            Console.WriteLine($"Прямоугольный массив - {t_2}");
+            Console.WriteLine($"Ступенчатый массив - {t_3}");
         }
     }
 }

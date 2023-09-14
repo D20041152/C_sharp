@@ -5,7 +5,7 @@ namespace mietlabs
     internal class Student
     {
 
-        public Student(Person pers, Education education, int number_group)
+        public Student(in Person pers, Education education, int number_group)
         {
             this.pers = pers;
             this.education = education;
@@ -100,7 +100,7 @@ namespace mietlabs
             return (double)sum / n;
         }
 
-        public void AddExams(Exam[] other_exams)
+        public void AddExams(in Exam[] other_exams)
         {
             int size_exams = exams.Length;
             Array.Resize(ref exams, other_exams.Length);
@@ -110,7 +110,7 @@ namespace mietlabs
             }
         }
 
-        public void AddExams(Exam[,] other_exams)
+        public void AddExams(in Exam[,] other_exams)
         {
             int n = 0;
             int size_exams = exams.Length;
@@ -125,7 +125,7 @@ namespace mietlabs
             }
         }
 
-        public void AddExams(Exam[][] other_exams)
+        public void AddExams(in Exam[][] other_exams)
         {
             int size_exams = exams_3.Length;
             Array.Resize(ref exams_3, other_exams.Length);
