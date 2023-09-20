@@ -18,35 +18,9 @@ namespace mietlabs
             this.birthday = new DateTime(1978, 1, 1);
         }
 
-        public string getName()
-        {
-            return name;
-        }
-
-        public string getSurname()
-        {
-            return surname;
-        }
-
-        public System.DateTime getDate()
-        {
-            return birthday;
-        }
-
-        public void setName(string name)
-        {
-            this.name = name;
-        }
-
-        public void setSurname(string surname)
-        {
-            this.surname = surname;
-        }
-
-        public void setDate(System.DateTime birthday)
-        {
-            this.birthday = birthday;
-        }
+        public int NAME { get; set; }
+        public int SURNAME { get; set; }
+        public int DATETIME { get; set; }
 
         public override string ToString()
         {

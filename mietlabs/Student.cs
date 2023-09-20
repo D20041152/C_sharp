@@ -23,20 +23,9 @@ namespace mietlabs
             exams_3 = new Exam[0][];
         }
 
-        public Person get_person()
-        {
-            return pers;
-        }
-
-        public Education get_education()
-        {
-            return education;
-        }
-
-        public int get_number_group()
-        {
-            return number_group;
-        }
+        public int PERSON { get; set; }
+        public int EDUCATION { get; set; }
+        public int NUMBER_group { get; set; }
 
         public string get_exam()
         {
@@ -65,21 +54,7 @@ namespace mietlabs
             return res;
         } 
 
-        public void set_person(Person pers)
-        {
-            this.pers = pers;
-        }
-
-        public void set_education(Education education)
-        {
-            this.education = education;
-        }
-
-        public void set_number_group(int number_group)
-        {
-            this.number_group = number_group;
-        }
-
+       
         public void index()
         {
             foreach (Education value in Enum.GetValues(typeof(Education)))
