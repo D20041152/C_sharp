@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4CA1A797-50F0-473E-9329-59FB8148A271}</ProjectGuid>
+    <ProjectGuid>{C0E4841E-A49A-4655-AADB-DE24B80665A7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>mietlabs</RootNamespace>
-    <AssemblyName>mietlabs</AssemblyName>
+    <RootNamespace>laba_2</RootNamespace>
+    <AssemblyName>laba_2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Student.cs" />
+    <Compile Include="eee.cs" />
     <Compile Include="Exam.cs" />
+    <Compile Include="IDateAndCopy.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="laba_1.cs" />
+    <Compile Include="laba_2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

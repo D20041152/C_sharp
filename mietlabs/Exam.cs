@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace mietlabs
+namespace laba_1
 {
     internal class Exam
     {

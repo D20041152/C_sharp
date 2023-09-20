@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace mietlabs
+namespace laba_1
 {
     enum Education
     {
@@ -10,7 +10,7 @@ namespace mietlabs
         Bachelor,
         SecondEducation
     }
-    internal class laba
+    internal class laba_1
     {
 
         static double timer(in Student st)
