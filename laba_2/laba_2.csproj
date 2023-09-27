@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="eee.cs" />
     <Compile Include="Exam.cs" />
     <Compile Include="IDateAndCopy.cs" />
     <Compile Include="Person.cs" />

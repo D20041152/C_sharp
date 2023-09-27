@@ -8,27 +8,26 @@ namespace laba_2
 {
     internal class Test
     {
-        Test(string name_subject, bool test_is_passed)
+        public Test(string name_subject, bool test_is_passed)
         {
             this.name_subject = name_subject;
             this.test_is_passed = test_is_passed;
         }
-        Test()
+
+        public Test()
         {
-            name_subject = "";
+            name_subject = "None";
             test_is_passed = false;
         }
 
         public override string ToString()
         {
-            return name_subject + Convert.ToString(test_is_passed);
+            return name_subject + "\t\t" + Convert.ToString(test_is_passed);
         }
 
-        public string NAME_subject { get; set; }
-        public bool TEST_is_passed { get; set; }
+        public string name_subject { get; set; }
+        public bool test_is_passed { get; set; }
 
-        private string name_subject;
-        private bool test_is_passed;
 
     }
 }

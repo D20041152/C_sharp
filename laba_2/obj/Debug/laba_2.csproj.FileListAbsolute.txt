@@ -1,0 +1,7 @@
+C:\Users\Денис\C++\mietlabs\laba_2\obj\Debug\laba_2.csproj.AssemblyReference.cache
+C:\Users\Денис\C++\mietlabs\laba_2\obj\Debug\laba_2.csproj.CoreCompileInputs.cache
+C:\Users\Денис\C++\mietlabs\laba_2\bin\Debug\laba_2.exe.config
+C:\Users\Денис\C++\mietlabs\laba_2\bin\Debug\laba_2.exe
+C:\Users\Денис\C++\mietlabs\laba_2\bin\Debug\laba_2.pdb
+C:\Users\Денис\C++\mietlabs\laba_2\obj\Debug\laba_2.exe
+C:\Users\Денис\C++\mietlabs\laba_2\obj\Debug\laba_2.pdb

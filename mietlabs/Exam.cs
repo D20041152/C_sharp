@@ -23,9 +23,9 @@ namespace laba_1
             return $"{Convert.ToString(name_sub),-15}\t{Convert.ToString(mark)}\t{Convert.ToString(date_exam)} ";
         }
 
-        public string name_sub;
-        public int mark;
-        public System.DateTime date_exam;
+        public string name_sub { get; set; }
+        public int mark { get; set; }
+        public System.DateTime date_exam { get; set; }
 
     }
 }

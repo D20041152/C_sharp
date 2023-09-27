@@ -18,7 +18,7 @@ namespace laba_1
             this.birthday = new DateTime(1978, 1, 1);
         }
 
-        public int NAME { get; set; }
+        public string Name { get; set; }
         public int SURNAME { get; set; }
         public int DATETIME { get; set; }
 

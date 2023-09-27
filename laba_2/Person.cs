@@ -19,9 +19,32 @@ namespace laba_2
             this.surname = "None";
             this.birthday = new DateTime(1978, 1, 1);
         }
-        public int NAME { get; set; }
-        public int SURNAME { get; set; }
+        public string NAME
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                this.name = value;
+            }
+        }
+        public string SURNAME
+        {
+            get
+            {
+                return surname;
+            }
+
+            set
+            {
+                this.surname = value;
+            }
+        }
         public DateTime Date { get; set; }
+
         public override string ToString()
         {
             return Convert.ToString(name) + " " + Convert.ToString(surname) + " " + Convert.ToString(birthday);
@@ -36,10 +59,12 @@ namespace laba_2
         {
             return a.name == b.name && a.surname == b.surname && a.birthday == b.birthday;
         }
+
         public static bool operator !=(in Person a, in Person b)
         {
             return !(a.name == b.name && a.surname == b.surname && a.birthday == b.birthday);
         }
+
         public override bool Equals(object obj)
         {
             Person pers = (Person)obj;
@@ -51,7 +76,7 @@ namespace laba_2
             return this.name.GetHashCode() + this.surname.GetHashCode() + this.birthday.GetHashCode();
         }
 
-        public object DeepCopy()
+        public virtual object DeepCopy()
         {
             Person obj_copy = new Person();
             obj_copy.name = this.name;
