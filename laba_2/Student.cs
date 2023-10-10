@@ -28,59 +28,6 @@ namespace laba_2
 
         }
 
-        public double average
-        {
-            get
-            {
-                int sum = 0, n = 0;
-                foreach (Exam exam in exams)
-                {
-                    sum = sum + exam.mark;
-                    n++;
-                }
-                return (double)sum / n;
-            }
-        }
-        public String EXAMS
-        {
-            get
-            {
-                string res = "";
-                foreach (var exam in exams)
-                {
-                    res += Convert.ToString(exam) + "\n";
-                }
-
-                return res;
-            }
-
-            set
-            {
-                exams.Add(value);
-            }
-        }
-
-        public String TESTS
-        {
-            get
-            {
-                string res = "";
-                foreach (var test in tests)
-                {
-                    res += Convert.ToString(test) + "\n";
-                }
-
-                return res;
-            }
-
-            set
-            {
-                tests.Add(value);
-            }
-        }
-
-
-
         public void AddExams(params Exam[] other_exams)
         {
             foreach (var item in other_exams)
@@ -99,49 +46,40 @@ namespace laba_2
 
         }
 
-        public bool this[Education ed]
-
+        private String ToExam()
         {
-            get
+            string res = "";
+            foreach (var exam in exams)
             {
-                return ed == education;
+                res += Convert.ToString(exam) + "\n";
             }
+
+            return res;
         }
 
+        private String ToTest()
+        {
+            string res = "";
+            foreach (var test in tests)
+            {
+                res += Convert.ToString(test) + "\n";
+            }
 
+            return res;
+        }
 
         public override string ToString()
         {
-            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + "\nЭкзамены и зачёты:\n" + Convert.ToString(EXAMS) + Convert.ToString(TESTS);
+            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + "\nЭкзамены и зачёты:\n" + Convert.ToString(ToExam()) + Convert.ToString(ToTest());
         }
 
-        public virtual string ToShortString()
+        public override string ToShortString()
         {
             return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + " " + Convert.ToString(average);
 
         }
 
-        public Person person
-        {
-            get
-            {
-                if (person == pers)
-                {
-                    return person;
-                }
-                return null;
-            }
-
-            set
-            {
-                name = value.NAME;
-                surname = value.SURNAME;
-                Date = value.Date;
-            }
-
-
-        }
-        public object DeepCopy()
+        public override object DeepCopy()
         {
             Student obj_copy = new Student();
             obj_copy.pers = pers.DeepCopy() as Person;
@@ -157,32 +95,6 @@ namespace laba_2
                 obj_copy.tests.Add(test);
             }
             return obj_copy;
-        }
-
-        public int NUMBER_group
-        {
-            get { return number_group; }
-
-            set
-            {
-                try
-                {
-
-                    if (100 <= value || value > 599)
-                    {
-                        throw new AccessViolationException("Ошибка! Допустимые границы номера группы - от 101 до 599");
-                    }
-                    else
-                    {
-                        number_group = value;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
         }
 
         public IEnumerable iter_exam(int mark)
@@ -208,6 +120,98 @@ namespace laba_2
                 yield return test;
             }
         }
+
+        public double average
+        {
+            get
+            {
+                int sum = 0, n = 0;
+                foreach (Exam exam in exams)
+                {
+                    sum = sum + exam.mark;
+                    n++;
+                }
+                return (double)sum / n;
+            }
+        }
+        public System.Collections.ArrayList EXAMS
+        {
+            get
+            {
+               return exams;
+            }
+
+            set
+            {
+                exams.Add(value);
+            }
+        }
+
+        public System.Collections.ArrayList TESTS
+        {
+            get
+            {
+                return tests;
+            }
+
+            set
+            {
+                tests.Add(value);
+            }
+        }
+
+        public int NUMBER_group
+        {
+            get { return number_group; }
+
+            set
+            {
+                try
+                {
+
+                    if (value <= 100 || value > 599)
+                    {
+                        throw new AccessViolationException("Ошибка! Допустимые границы номера группы - от 101 до 599");
+                    }
+                    else
+                    {
+                        number_group = value;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        public bool this[Education ed]
+
+        {
+            get
+            {
+                return ed == education;
+            }
+        }
+
+        public Person person
+        {
+            get
+            {
+                return pers;
+            }
+
+            set
+            {
+                name = value.NAME;
+                surname = value.SURNAME;
+                Date = value.Date;
+            }
+
+
+        }
+
 
         private Person pers;
         private Education education;

@@ -21,43 +21,50 @@ namespace laba_2
 
             Console.WriteLine($"Объекты класса Person равны: {person_1 == person_2}");
 
-            Console.WriteLine(person_1.GetHashCode());
-            Console.WriteLine(person_2.GetHashCode());
+            Console.WriteLine($"хеш первого человека: {person_1.GetHashCode()}");
+            Console.WriteLine($"хеш второго человека: {person_2.GetHashCode()}");
+            Console.WriteLine();
 
-            Student student_1 = new Student(person_1, Education.Specialist, 7);
+            Student student_1 = new Student(person_1, Education.Specialist, 107);
 
             student_1.AddExams(new Exam(), new Exam(), new Exam("Math", 5, new DateTime(2021, 11, 23)));
             student_1.AddTests(new Test(), new Test(), new Test("Pe", true));
             Console.WriteLine(student_1.ToString());
-            Console.WriteLine(student_1.NUMBER_group);
+            Console.WriteLine();
+
+            Console.WriteLine($"Свойство person: {student_1.person}");
+            Console.WriteLine();
+
             Student student_3 = new Student();
             student_3 = student_1.DeepCopy() as Student;
-
-            student_1.NUMBER_group = 5;
-            person_1.NAME = "Pavel";
+            student_1.NUMBER_group = 105;
             student_1.AddTests(new Test("Music", true));
-
-            Console.WriteLine(student_1.NUMBER_group);
-            Console.WriteLine(student_3.NUMBER_group);
+            person_1.NAME = "Pavel";
             Console.WriteLine(student_1.ToString());
             Console.WriteLine(student_3.ToString());
+
+            Console.WriteLine();
+
+           student_1.NUMBER_group = 4; //Exception
+
             Console.WriteLine();
 
             Console.WriteLine("Список предметов и зачётов:");
 
+            student_1.AddExams(new Exam("English lang", 3, new DateTime(2023, 12, 12)));
+            student_1.AddExams(new Exam("Algebra", 4, new DateTime(2021, 9, 12)));
             foreach (var item in student_1.iter_testexam())
             {
                 Console.WriteLine(item);
             }
 
             Console.WriteLine();
-            Console.WriteLine("Список экзаменов с оценкой выше 3:");
 
+            Console.WriteLine("Список экзаменов с оценкой выше 3:");
             foreach (Exam item in student_1.iter_exam(3))
             {
                 Console.WriteLine(item);
             }
-
 
         }
     }
