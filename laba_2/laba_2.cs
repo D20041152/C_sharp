@@ -51,8 +51,9 @@ namespace laba_2
 
             Console.WriteLine("Список предметов и зачётов:");
 
-            student_1.AddExams(new Exam("English lang", 3, new DateTime(2023, 12, 12)));
+            student_1.AddExams(new Exam("English lang", 2, new DateTime(2023, 12, 12)));
             student_1.AddExams(new Exam("Algebra", 4, new DateTime(2021, 9, 12)));
+            student_1.AddExams(new Exam("Music", 3, new DateTime(2020, 3, 5)));
             foreach (var item in student_1.iter_testexam())
             {
                 Console.WriteLine(item);
@@ -65,7 +66,21 @@ namespace laba_2
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
 
+            Console.WriteLine("Список всех сданных зачетов и сданных экзаменов:");
+            foreach (var item in student_1.getDoneTestsandExam())
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Список сданных зачетов, для которых сдан экзамен");
+            foreach(var item in student_1.getDoneTest())
+            {
+                Console.WriteLine(item);
+            }    
+            
         }
     }
 }

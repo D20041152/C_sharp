@@ -5,3 +5,10 @@ C:\Users\Денис\C++\mietlabs\test\obj\Debug\test.csproj.AssemblyReference.ca
 C:\Users\Денис\C++\mietlabs\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 C:\Users\Денис\C++\mietlabs\test\obj\Debug\test.exe
 C:\Users\Денис\C++\mietlabs\test\obj\Debug\test.pdb
+C:\Users\Denis\Desktop\mietlabs\test\bin\Debug\test.exe.config
+C:\Users\Denis\Desktop\mietlabs\test\bin\Debug\test.exe
+C:\Users\Denis\Desktop\mietlabs\test\bin\Debug\test.pdb
+C:\Users\Denis\Desktop\mietlabs\test\obj\Debug\test.csproj.AssemblyReference.cache
+C:\Users\Denis\Desktop\mietlabs\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+C:\Users\Denis\Desktop\mietlabs\test\obj\Debug\test.exe
+C:\Users\Denis\Desktop\mietlabs\test\obj\Debug\test.pdb

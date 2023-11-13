@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using System.Collections;
 using System;
 using System.Runtime.Remoting;
 using System.Diagnostics.Tracing;
 using static System.Net.Mime.MediaTypeNames;
+using System.Xml.Linq;
 
-namespace laba_2
+namespace laba_3
 {
     internal class Student : Person, IDateAndCopy
     {
@@ -14,8 +16,8 @@ namespace laba_2
             this.pers = pers;
             this.education = education;
             this.NUMBER_group = number_group;
-            exams = new ArrayList(0);
-            tests = new ArrayList(0);
+            exams = new List <Exam>(0);
+            tests = new List <Test>(0);
 
         }
 
@@ -24,9 +26,24 @@ namespace laba_2
             Person pers = new Person();
             education = new Education();
             number_group = 0;
-            exams = new ArrayList(0);
-            tests = new ArrayList(0);
+            exams = new List <Exam>(0);
+            tests = new List <Test>(0);
 
+        }
+
+        public void sort_name_sub()
+        {
+            exams.Sort();
+        }
+
+        public void sort_mark()
+        {
+            exams.Sort(new Marks_exam());
+        }
+
+        public void sort_date() 
+        {
+            exams.Sort(new Date_exam());
         }
 
         public void AddExams(params Exam[] other_exams)
@@ -71,7 +88,7 @@ namespace laba_2
 
         public override string ToString()
         {
-            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + "\nЭкзамены и зачёты:\n" + Convert.ToString(ToExam()) + Convert.ToString(ToTest());
+            return Convert.ToString(pers) + " " + Convert.ToString(education) + " " + Convert.ToString(number_group) + "\nЭкзамены и зачёты:\n" + Convert.ToString(ToExam()) + Convert.ToString(ToTest()) + "\n";
         }
 
         public override string ToShortString()
@@ -126,7 +143,7 @@ namespace laba_2
         {
             foreach (Exam exam in exams)
             {
-                if(exam.mark > 2)
+                if (exam.mark > 2)
                 {
                     yield return exam;
                 }
@@ -149,10 +166,6 @@ namespace laba_2
             }
         }
 
-        //public IEnumerable intersection()
-       // {
-            //return StudentEnumerator(this); 
-        //}
 
         public double average
         {
@@ -167,20 +180,20 @@ namespace laba_2
                 return (double)sum / n;
             }
         }
-        public System.Collections.ArrayList EXAMS
+        public List<Exam> EXAMS
         {
             get
             {
-               return exams;
+                return (List<Exam>)exams;
             }
 
             set
             {
-                exams.Add(value);
+                exams = value as List<Exam>;
             }
         }
 
-        public System.Collections.ArrayList TESTS
+        public List<Test> TESTS
         {
             get
             {
@@ -189,7 +202,7 @@ namespace laba_2
 
             set
             {
-                tests.Add(value);
+                tests = value as List<Test>;
             }
         }
 
@@ -219,6 +232,11 @@ namespace laba_2
             }
         }
 
+        public override int GetHashCode()
+        {
+            return pers.NAME.GetHashCode() + pers.SURNAME.GetHashCode();
+        }
+
         public bool this[Education ed]
 
         {
@@ -245,10 +263,10 @@ namespace laba_2
 
 
         private Person pers;
-        private Education education;
+        public Education education;
         private int number_group;
-        private ArrayList tests;
-        private ArrayList exams;
-        
+        private List<Test> tests;
+        private List<Exam> exams;
+
     }
 }
